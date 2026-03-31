@@ -1,5 +1,7 @@
 {{ define "main" }}
   {{ $posts := where site.RegularPages "Section" "posts" }}
+  {{ $posts = sort $posts "File.Path" "desc" }}
+  {{ $posts = sort $posts "Date" "desc" }}
   <section class="hero">
     <p class="eyebrow">GitHub Pages + Hugo</p>
     <h1>기록을 바로 시작할 수 있는 블로그</h1>
@@ -11,7 +13,7 @@
       <p class="panel-label">목차</p>
       <h2>최신 글 바로가기</h2>
       <nav class="toc-nav" aria-label="최신 글 목차">
-        {{ range $index, $post := $posts.ByDate.Reverse }}
+        {{ range $index, $post := $posts }}
           <a href="#post-{{ add $index 1 }}">
             <span>{{ printf "%02d" (add $index 1) }}</span>
             <strong>{{ $post.Title }}</strong>
@@ -32,7 +34,7 @@
       </div>
 
       <div class="post-list">
-        {{ range $index, $post := $posts.ByDate.Reverse }}
+        {{ range $index, $post := $posts }}
           <article class="post-card" id="post-{{ add $index 1 }}">
             <p class="post-meta">{{ $post.Date.Format "2006-01-02" }}</p>
             <h3><a href="{{ $post.RelPermalink }}">{{ $post.Title }}</a></h3>
