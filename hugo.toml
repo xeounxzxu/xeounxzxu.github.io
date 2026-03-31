@@ -1,0 +1,12 @@
+baseURL = "https://xeounxzxu.github.io/"
+languageCode = "ko-kr"
+title = "xeounxzxu 블로그"
+timezone = "Asia/Seoul"
+
+[params]
+  description = "Hugo로 구축한 GitHub 블로그"
+  author = "jeoung-gyu"
+
+[caches]
+  [caches.images]
+    dir = ":cacheDir/images"
