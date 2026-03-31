@@ -1,5 +1,17 @@
 # Repository Guidelines
 
+## Local Skills
+Local project skills live under `skills/<skill-name>/SKILL.md`.
+
+- If a user explicitly names a local skill, open that `SKILL.md` and follow it for the current turn.
+- If a request clearly matches a local skill's description, use that skill even if the user does not name it directly.
+- Announce which local skill is being used and why in one short line before doing substantial work.
+- Keep local skills scoped to this repository's workflows. Do not assume a local skill applies outside this project.
+
+Current local skills:
+
+- `hugo-blog-publish`: write or update a Hugo blog post, verify with `hugo`, then `git add`, `commit`, and `push`.
+
 ## Project Structure & Module Organization
 This repository is a Hugo site for GitHub Pages. Site configuration lives in `hugo.toml`. Content pages are under `content/`, with blog posts in `content/posts/`. Shared HTML templates live in `layouts/`, including `layouts/_default/` for base, list, and single-page views, plus `layouts/index.html` for the home page. Static assets are served from `static/`, with site styles in `static/css/main.css`. New posts should follow the archetype in `archetypes/default.md`.
 
