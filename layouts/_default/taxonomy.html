@@ -1,0 +1,13 @@
+{{ define "main" }}
+  <section class="post-single">
+    <p class="post-meta">Taxonomy</p>
+    <h1>{{ .Title }}</h1>
+    <ul class="plain-list">
+      {{ range .Pages }}
+        <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+      {{ else }}
+        <li>표시할 항목이 없습니다.</li>
+      {{ end }}
+    </ul>
+  </section>
+{{ end }}

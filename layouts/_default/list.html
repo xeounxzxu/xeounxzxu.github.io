@@ -1,0 +1,16 @@
+{{ define "main" }}
+  <section class="post-single">
+    <p class="post-meta">{{ .Title }}</p>
+    <h1>{{ .Title }}</h1>
+    <div class="content">
+      {{ if .Content }}{{ .Content }}{{ end }}
+      <ul class="plain-list">
+        {{ range .Pages }}
+          <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+        {{ else }}
+          <li>표시할 글이 없습니다.</li>
+        {{ end }}
+      </ul>
+    </div>
+  </section>
+{{ end }}

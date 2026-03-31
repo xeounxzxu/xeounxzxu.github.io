@@ -1,0 +1,11 @@
+{{ define "main" }}
+  <article class="post-single">
+    <p class="post-meta">{{ .Date.Format "2006-01-02" }}</p>
+    <h1>{{ .Title }}</h1>
+    {{ with .Description }}<p class="lead">{{ . }}</p>{{ end }}
+    <div class="content">
+      {{ .Content }}
+    </div>
+    <p><a href="{{ "/" | relURL }}">홈으로 돌아가기</a></p>
+  </article>
+{{ end }}
