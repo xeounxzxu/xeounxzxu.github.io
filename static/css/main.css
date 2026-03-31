@@ -28,7 +28,7 @@ a {
 }
 
 .page {
-  width: min(760px, calc(100% - 32px));
+  width: min(1180px, calc(100% - 32px));
   margin: 0 auto;
   padding: 48px 0 64px;
 }
@@ -84,6 +84,80 @@ a {
   font-size: 1.08rem;
 }
 
+.home-grid {
+  display: grid;
+  grid-template-columns: 240px minmax(0, 1fr) 240px;
+  gap: 20px;
+  align-items: start;
+}
+
+.home-panel {
+  border: 1px solid var(--line);
+  background: var(--panel);
+  backdrop-filter: blur(12px);
+  box-shadow: var(--shadow);
+  border-radius: 24px;
+}
+
+.side-panel {
+  position: sticky;
+  top: 24px;
+  padding: 22px 20px;
+}
+
+.panel-label {
+  margin: 0 0 8px;
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.side-panel h2,
+.section-heading h2 {
+  margin: 0;
+  font-size: 1.35rem;
+  line-height: 1.15;
+}
+
+.toc-nav,
+.category-nav {
+  display: grid;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.toc-nav a,
+.category-nav a {
+  display: grid;
+  gap: 2px;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.45);
+  text-decoration: none;
+}
+
+.toc-nav span,
+.category-nav span,
+.section-meta {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.post-feed {
+  padding: 22px;
+}
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: end;
+  margin-bottom: 18px;
+}
+
 .post-list {
   display: grid;
   gap: 18px;
@@ -96,6 +170,7 @@ a {
 }
 
 .post-card h2,
+.post-card h3,
 .post-single h1 {
   margin: 0 0 8px;
 }
@@ -103,6 +178,22 @@ a {
 .post-card a {
   text-decoration-thickness: 2px;
   text-underline-offset: 0.18em;
+}
+
+.post-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.post-tags a {
+  padding: 4px 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--accent-soft);
+  text-decoration: none;
+  font-size: 0.88rem;
 }
 
 .content p,
@@ -130,18 +221,34 @@ a {
 
 @media (max-width: 640px) {
   .page {
-    width: min(100% - 20px, 760px);
+    width: min(100% - 20px, 1180px);
     padding-top: 20px;
   }
 
   .site-header,
   .post-card,
-  .post-single {
+  .post-single,
+  .home-panel {
     padding: 20px;
     border-radius: 20px;
   }
 
   .hero {
     padding-top: 28px;
+  }
+}
+
+@media (max-width: 980px) {
+  .home-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .side-panel {
+    position: static;
+  }
+
+  .section-heading {
+    flex-direction: column;
+    align-items: start;
   }
 }
